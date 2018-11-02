@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ECIP 1017</title>
+  <link rel="icon" type="image/png" href="./img/favicon.ico">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./css/1017.css">
+</head>
+
+
+<body>
+  <div class="container text-center heading">
+    <h1>Ethereum Classic Era Countdown</h1>
+    <hr>
+  </div>
+<!-- Date estimate -->
+  <div class="container text-center">
+    <div class="row text-center">
+      <h2 id="realDate"></h2>
+    </div>
+  </div>
+
+  <div class="countdown-container container">
+    <div class="clock row">
+
+<!-- days -->
+    <div class="clock-item clock-days countdown-time-value col-sm-6 col-md-3">
+      <div class="wrap">
+        <div class="inner">
+          <div id="canvas_days" class="clock-canvas"></div>
+          <div class="text">
+            <p id="day-val" class="val">0</p>
+            <p class="type-days type-time">DAYS</p>
+            <p class="type-days type-time">日</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- hours -->
+    <div class="clock-item clock-hours countdown-time-value col-sm-6 col-md-3">
+      <div class="wrap">
+        <div class="inner">
+          <div id="canvas_hours" class="clock-canvas"></div>
+          <div class="text">
+            <p id="hour-val" class="val">0</p>
+            <p class="type-hours type-time">HOURS</p>
+            <p class="type-hours type-time">小时</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- minutes -->
+    <div class="clock-item clock-minutes countdown-time-value col-sm-6 col-md-3">
+      <div class="wrap">
+        <div class="inner">
+          <div id="canvas_minutes" class="clock-canvas"></div>
+          <div class="text">
+            <p id="minute-val" class="val">0</p>
+            <p class="type-minutes type-time">MINUTES</p>
+            <p class="type-minutes type-time">分钟</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- seconds -->
+    <div class="clock-item clock-seconds countdown-time-value col-sm-6 col-md-3">
+      <div class="wrap">
+        <div class="inner">
+          <div id="canvas_seconds" class="clock-canvas"></div>
+          <div class="text">
+            <p id="second-val" class="clock-seconds val">0</p>
+            <p class="type-seconds type-time">SECONDS</p>
+            <p class="type-seconds type-time">秒</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Block Progress -->
+<div class="bar-container container">
+  <div class="row text-center">
+    <h4> Era 1 - Blocks 0 - 5,000,000</h4>
+    <div class="progress progress-striped active">
+      <div id = "era-1" class="progress-bar" style="width: 45%"></div>
+    </div>
+    <h5 id="currentBlock"></h5>
+  </div>
+</div>
+
+<!-- Block Progress -->
+<div id="era2-block" class="bar-container container" style="visibility: hidden">
+  <div class="row text-center">
+    <h4> Era 2 - Blocks 5,000,001 - 10,000,000</h4>
+    <div class="progress progress-striped active">
+      <div id = "era-2" class="progress-bar" style="width: 45%"></div>
+    </div>
+    <h5 id="currentBlock2"></h5>
+  </div>
+</div>
+
+<!-- Block Progress -->
+<div id="era3-block" class="bar-container container" style="visibility: hidden">
+  <div class="row text-center">
+    <h4> Era 3 - Blocks 10,000,001 - 15,000,000</h4>
+    <div class="progress progress-striped active">
+      <div id = "era-3" class="progress-bar" style="width: 45%"></div>
+    </div>
+    <h5 id="currentBlock3"></h5>
+  </div>
+</div>
+
+
+<!-- Info Section -->
+<div class="info-container container ">
+  <div class="row">
+    <div class="col-md-12">
+      <h3> What is ECIP 1017?</h3>
+      <hr>
+      <p> The Ethereum Classic community has grown substantially since its inception in July of 2016. In order to further Ethereum Classic’s vision, the community needs to adopt a monetary policy that balances the long-term interests of investors, developers, and business operators.</p>
+      <p> The new monetary policy sets a limit for the total ETC issuance. The block reward will be reduced by 20% at block number 5,000,000, and another 20% every 5,000,000 blocks thereafter. Uncle block rewards will also be reduced. Due to variations in the reward rate of ETC, we anticipate the total supply to be approximately 210 million ETC, not to exceed 230 million ETC.</p>
+      <a href="https://www.etcdevteam.com/blog/articles/a-joint-statement-ecip1017.html">A JOINT STATEMENT ON ETHEREUM CLASSIC’S MONETARY POLICY</a>
+    </div>
+  </div>
+
+  <div class ="row text-center">
+    <h3 style = "text-align: left"> What is this means?</h3>
+    <hr>
+    <img class=" col-md-6 img-responsive" src= "./img/era1.png" />
+    <img class=" col-md-6 img-responsive" src= "./img/era2.png" />
+  </div>
+
+  <div class ="row">
+    <h3> What should I do?</h3>
+    <hr>
+    <p> The agreed upon changes will be merged with the current clients. Please make sure you are running the latest version of <a href="https://github.com/paritytech/parity/releases">Parity (>1.6.9)</a>, <a href="https://github.com/ethereumproject/go-ethereum/releases">ETC-Geth (>4.0.0)</a>, or <a href="https://github.com/input-output-hk/mantis">Mantis</a>.
+  </div>
+
+  <div class ="row">
+    <div class="col-md-6">
+      <hr>
+      <h3> Motivation </h3>
+      <p>At its core, the purpose of adjusting the current monetary policy of the ETC network, to a policy which places an upper bound on the number of tokens issued and decreases the rate at which ETC is introduced into the system over time, is to "bootstrap" the network’s security. By increasing the security of the network, a proper monetary policy indirectly nurtures the network, providing a secure platform for which smart contract development will be more likely to occur.</p>
+      <p>If we accept that speculation, a demand function, is the main economic driver of any new system, that the Ethereum Classic Network is a new system, and that speculation will drive the value of the Ethereum Classic token until the utility value of the Ethereum Classic token exceeds its speculative value, it is reasonable to assume that rewarding speculation will help to secure and nurture the network:</p>
+      <p>Large scale, high risk, and/or high profile applications will be less likely to be developed on a blockchain with weak security ie. a low hashrate. Increasing demand for the Ethereum Classic token will, all else being equal, increase the price of the Ethereum Classic token. An increase in the price of the token incentivizes mining operations to direct their efforts on the Ethereum Classic Network or to begin operations on the Ethereum Classic Network. The additional mining power that is directed towards the network, because of this incentive, further secures the network. An increase in the security of the network assists in building trust between the network and both current and potential users and developers of the network. This increase of trust in the network provides an incentive for large scale, high risk, and/or high profile applications to be developed on the network. Thus, rewarding speculation helps to secure and nurture the Ethereum Classic network.</p>
+      <p>Especially important to early stage cryptocurrencies, assuming all other variables are equal, a network with a decreasing rate of production and an upper bound on the number of tokens that will be issued will provide more incentive for high risk speculation to occur than one without a known rate of production or an upper bound.</p>
+      <p>Above all, it is important to recognize that a monetary policy does not directly create value for the network. A stable platform with useful applications and a vibrant community are the variables that drive value. The purpose of a properly structured monetary policy is to create an incentive for people to take a risk on a system that has not yet reached its full potential, providing an additional reason for those who may not otherwise be interested, who cannot or have not developed anything on the platform (yet), or who remain skeptical, to involve themselves in an otherwise nascent platform.</p>
+      <a href="https://github.com/ethereumproject/ECIPs/blob/master/ECIPs/ECIP-1017.md">Monetary Policy and Final Modification to the Ethereum Classic Emission Schedule</a>
+    </div>
+    <div class="col-md-6">
+      <hr>
+      <h3>原动力</h3>
+      <p>从核心上来说,将现在 ETC 网络的货币政策调整为一个有上限数量的代币和随着时间递减的出 币规律的目的,最重要的出发点是维护网络的安全,让其有自力更生的能力。通过提高网络的安全 性能,一个合适的货币政策将间接地促进网络的发展,提供一个为所有智能合约开发所需的安全平 台。</p>
+      <p>如果我们承认投机需求是一个新经济系统的主要经济动力,显然 ETC(Ethereum Classic)网络是 一个全新的系统,那么投机需求会驱动 ETC 的价格往前走,直到 ETC 网络真正的实用价值超过它 的投机价值。回应投机需求来帮助培育和提供网络的安全性就是有原因的:</p>
+      <p>大型、高风险、或者高价值的应用如果脱离了一个安全的网络就很难发展了,譬如我们的算力 很低的话。提高 ETC 币的需求会直接刺激 ETC 币价的上涨。ETC 币价的上涨会激励矿工的积极 性,吸引更多的矿工来挖矿,更多的矿工意味着更高的安全性。一个高安全性的网络有助于在网 络、现有用户和潜在用户、以及开发者之间建立良好的信任关系。这个信任鼓励大型的、高风险的 或者高价值的应用等需求来到这个网络。因此,奖励投机需求有助于培育和提高 ETC 网路的安全 性。</p>
+      <p>这对加密货币早期 Era 来说特别重要,假设所有的条件都是相同的,一个产量递减和有上限的 币比一个没有产出规律和没有上限的币显而易见地会提供更多的激励给高风险投机者。</p>
+      <p>综上所述,承认一个货币政策并没有直接为网络创造价值这个观点是很重要的。拥有一些好的 应用和一个活跃的社区等诸多条件的稳定平台才能驱动价值。设计适当的货币政策方案是创造一个 激励机制、促使人们愿意在这个还没有完全发挥自身潜力网络进行高风险投资的目的。为那些还没 有对这个网络产生兴趣或还没有在这个网络进行任何开发或者到目前为止还保持怀疑的这些人来说 一个很好的激励,鼓励让他们加入到一个还处于早期发展 Era 的平台上来。</p>
+      <a href="https://github.com/ethereumproject/ECIPs/blob/master/ECIPs/ECIP-1017_cn.md">ETC 货币政策和铸币方案最终修改 </a>
+    </div>
+  </div>
+</div>
+
+<div class="foot-container container">
+  <hr>
+  <div class="row text-center">
+    <h5>👨🏼‍💻 with 💗 by: DontPanic    |    🍻+🍕+🚗 : ETC <a href="http://gastracker.io/addr/0xCe5ED529977b08f87CBc207ebC216859820461eE">0xCe5ED529977b08f87CBc207ebC216859820461eE</a></h5><img src ="./img/qr.png" />
+  </div>
+</div>
+
+</body>
+<footer>
+
+  <script src="https://bootswatch.com/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/1017.js"></script>
+
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-38841054-8', 'auto');  ga('send', 'pageview');</script>
+  <script>
+  /* <![CDATA[*/(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/\>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
+</footer>
+
+
+</html>
