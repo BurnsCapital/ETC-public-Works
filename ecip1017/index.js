@@ -5,7 +5,7 @@ var web3 = new Web3(new Web3.providers.WebsocketProvider(process.env.WEB3_URL));
 var http = require('http'),
     fs = require('fs'),
     // NEVER use a Sync function except at start-up!
-    index = fs.readFileSync(__dirname + 'index.html');
+    index = fs.readFileSync(__dirname + '/index.html');
 
 // Send index.html to all requests
 var app = http.createServer(function(req, res) {
