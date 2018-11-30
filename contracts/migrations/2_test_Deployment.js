@@ -1,4 +1,5 @@
 var BotToken = artifacts.require("./bottoken.sol");
+var Watchdog = artifacts.require("./watchdog.sol");
 
 // TEST OWNERS
 var botAccount = ['0x12345000000000000000000000000000','0x123456','0x1234567','0x12345678']
@@ -14,4 +15,5 @@ var i = {
 module.exports = function(deployer) {
   console.log('test migrations activate');
   deployer.deploy(BotToken, i._name, i._icon, i._decimals, i._owner, i._initialSupply);
+  deployer.deploy(Watchdog);
 };

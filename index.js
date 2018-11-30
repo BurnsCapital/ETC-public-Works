@@ -1,2 +1,3 @@
 require('dotenv').config();
-require('./Bridgette-bot');
+//require('./Bridgette-bot');
+require('./Heimdall');

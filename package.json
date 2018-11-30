@@ -1,8 +1,6 @@
 {
   "name": "etc-public-works",
-
   "version": "1.0.2",
-
   "description": "collection of public repos for ethereum classic",
   "main": "index.js",
   "directories": {
@@ -27,8 +25,13 @@
     "discord.io-gateway6": "^2.5.3",
     "dotenv": "^6.1.0",
     "forever": "^0.15.3",
+    "ioredis": "^4.2.0",
     "joi": "^14.0.1",
+    "kcors": "^2.2.2",
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
     "mocha": "^5.0.4",
+    "node-gyp": "^3.8.0",
     "truffle": "^4.1.3",
     "web3": "^1.0.0-beta.30",
     "winston": "^3.1.0"

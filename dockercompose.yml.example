@@ -1,6 +1,14 @@
 version: '3.2'
 services:
-  bridgette:
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+  redis:
+      image: "redis"
+      ports:
+        - "6379:6379"
+  publicWorks:
     image: bcrd/etc-public-works:staging
     container_name: ETC-public-Works
     tty: true
@@ -10,6 +18,8 @@ services:
      - DISCORD_TOKEN=<your_token_no_quotes>
      - BRIDGETTE_ADDRESS=0x172E7cd98bbe151640A84058eE9223708860B45A
      - BRIDGETTE_PW=<super_password_no_quotes>
+     - WEBHOOK_SECRET=<someother secret>
+     - WDPORT=<something for the api>
     ports:
      - '8546:8546'
      - '80:80'
