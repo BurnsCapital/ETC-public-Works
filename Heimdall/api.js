@@ -1,7 +1,10 @@
 const Router = require('koa-router');
 //const database = require('./database');
-const blockchain = require('./dlt/core');
+//const blockchain = require('./dlt/core');
+const watchman = require('./webhooks/watchman');
 const cache = require('./cache');
+var bodyParser = require('koa-body')();
+
 //const joi = require('joi');
 //const validate = require('koa-joi-validate');
 
@@ -38,7 +41,7 @@ router.get('/Heimdall', async ctx => {
   ctx.body = 'Heimdall is online';
 });
 
-// Get latest block from DB
+/* Get latest block from DB
 router.get('/blockchain/getBlockNumber', async ctx => {
 	return new Promise(function(resolve, reject){
 	 blockchain.getBlockNumber(function(result){
@@ -47,12 +50,15 @@ router.get('/blockchain/getBlockNumber', async ctx => {
 	    });
 	});
 })
-
+*/
 //log a webhook hit
 router.post('/watchdog', bodyParser, async ctx => {
-	console.log(this.request.body);
-	this.status = 200;
-	yield(next);
+	return new Promise(function(resolve, reject){
+		watchman.sendLog(function(result){
+			ctx.body = result;
+			resolve();
+		});
+	});
 })
 
 
