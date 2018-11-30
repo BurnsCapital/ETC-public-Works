@@ -1,5 +1,8 @@
-pragma solidity 0.4.20;
+pragma solidity ^0.4.20;
+
+
 contract SafeMath {
+
   /**
   * @dev Multiplies two numbers, throws on overflow.
   */
@@ -7,11 +10,15 @@ contract SafeMath {
     // Gas optimization: this is cheaper than asserting 'a' not being zero, but the
     // benefit is lost if 'b' is also tested.
     // See: https://github.com/OpenZeppelin/openzeppelin-solidity/pull/522
-    if (_a == 0) {return 0;}
+    if (_a == 0) {
+      return 0;
+    }
+
     c = _a * _b;
     assert(c / _a == _b);
     return c;
   }
+
   /**
   * @dev Integer division of two numbers, truncating the quotient.
   */
@@ -21,6 +28,7 @@ contract SafeMath {
     // assert(_a == _b * c + _a % _b); // There is no case in which this doesn't hold
     return _a / _b;
   }
+
   /**
   * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
   */
@@ -60,9 +68,11 @@ contract btoken is SafeMath{
 
 // only operate if the command comes from bridigette
   modifier onlyOwner(){
-    require(msg.sender == owner);
+    if(msg.sender != owner)throw;
     _;
   }
+
+
 /*
  * Constructor function
  * @dev this is called by a software licensor who then becomes the owner

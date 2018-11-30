@@ -17,7 +17,6 @@ module.exports = (channelID) => {
     + "       community: see the balance of the community multisig" +"\n"
     + "       mail: send a message to an address" + "\n"
     + "       donate <team> <percent> <addr>: get a contract to donate to your fav dev team" +"\n"
-    + "       tipper: send a ETC to users" + "\n"
     + "```"
 
   };
