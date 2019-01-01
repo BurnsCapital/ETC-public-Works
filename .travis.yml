@@ -17,6 +17,3 @@ install:
 script:
   - cd contracts && truffle compile --all && cd ..
   - npm run test
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t bcrd/etc-public-works:$TRAVIS_BRANCH .
-  - docker push bcrd/etc-public-works:$TRAVIS_BRANCH
