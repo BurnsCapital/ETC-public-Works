@@ -18,7 +18,7 @@ const { getBlockNumber, getBalance, getTransaction, sendSignedTransaction, getGa
 
 // dapps
 
-const { statebot, multi, donate, getetc, etcmail, eventLog, tipper } = require( "./dapps" );
+const { statebot, multi, donate, getetc, etcmail, eventLog, tipper, atlantis } = require( "./dapps" );
 
 // help files
 
@@ -184,6 +184,33 @@ bot.on('message', async function (user, userID, channelID, message, evt) {
             break;
 
 //* dapps *//
+            case 'atlantis':
+              web3.eth.getBlockNumber()
+              .then(blockNumber => {
+                bot.sendMessage(atlantis(channelID, "Atlantis", 8772000, blockNumber));
+                  }).catch((err) => {
+                bot.sendMessage(error(channelID, err))
+              });
+            break;
+
+        case 'agharta':
+              web3.eth.getBlockNumber()
+              .then(blockNumber => {
+                bot.sendMessage(atlantis(channelID, "Agharta", 9200000, blockNumber));
+                  }).catch((err) => {
+                bot.sendMessage(error(channelID, err))
+              });
+            break;
+
+       case 'ecip1017':
+              web3.eth.getBlockNumber()
+              .then(blockNumber => {
+                bot.sendMessage(atlantis(channelID, "ECIP1017", 10000000, blockNumber));
+                  }).catch((err) => {
+                bot.sendMessage(error(channelID, err))
+              });
+            break;
+
             case 'statebot':
             statebot.methods.currentAddr().call()
             .then( ca => {

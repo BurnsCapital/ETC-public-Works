@@ -1,6 +1,6 @@
 {
   "name": "etc-public-works",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "collection of public repos for ethereum classic",
   "main": "index.js",
   "directories": {
