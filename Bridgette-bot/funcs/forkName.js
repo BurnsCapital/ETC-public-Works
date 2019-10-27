@@ -1,4 +1,4 @@
-const { log } = require('../lib');
+const { log } = require('../common');
 const wl = require('../common/wordlist.json');
 log.info('[dflow/controllers/forkname.js] forkname loaded');
 
