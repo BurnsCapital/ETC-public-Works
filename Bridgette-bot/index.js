@@ -14,7 +14,7 @@ function isNumber(n) {
 
 //* Get functions from library *//
 
-const { getBlockNumber, getBalance, getTransaction, sendSignedTransaction, getGasPrice, getBlock, version, error } = require( "./funcs" );
+const { getBlockNumber, getBalance, getTransaction, sendSignedTransaction, getGasPrice, getBlock, version, error, forkName } = require( "./funcs" );
 
 // dapps
 
@@ -65,7 +65,12 @@ bot.on('message', async function (user, userID, channelID, message, evt) {
             case 'version':
               bot.sendMessage(version(channelID));
             break;
-
+            
+            // forkname     
+            case 'fork':
+                bot.sendMessage(forkName(payload));
+            break;
+            
             // getBalance
             case 'getbalance':
              if(payload != undefined && web3.utils.isAddress(payload)){
