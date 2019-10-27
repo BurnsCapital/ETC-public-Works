@@ -9,6 +9,7 @@ var getGasPrice = require('./getGasPrice');
 var getBlock = require('./getBlock');
 var version = require('./version');
 var error = require('./error');
+var forkName = require('./forkName');
 
 log.info('[Bridgett-bot/funcs/index.js] functions loaded');
 
@@ -21,6 +22,7 @@ module.exports = {
     getBlock : getBlock,
     version : version,
     error : error,
+    forkName : forkName,
 }
 
 // copy paste 
