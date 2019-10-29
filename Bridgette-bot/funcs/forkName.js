@@ -19,12 +19,11 @@ function reverseNumber(n){
 }
 
 
-module.exports = (blocknumber) =>{
+module.exports = (channelID, blocknumber) =>{
     let bn1= blocknumber % 2048;
     let bn2= reverseNumber(blocknumber) % 2048;
-    let response = getResponse(bn1,bn2); 
-    log.debug('[dflow/controllers/forkname.js] getResponse(): ' + response);
     return {
-        message: response
+      to: channelID,
+      message: getResponse(bn1,bn2)
     };
-} 
+}; 

@@ -14,7 +14,7 @@ function isNumber(n) {
 
 //* Get functions from library *//
 
-const { getBlockNumber, getBalance, getTransaction, sendSignedTransaction, getGasPrice, getBlock, version, error, forkName } = require( "./funcs" );
+const { getBlockNumber, getBalance, getTransaction, getTXR, sendSignedTransaction, getGasPrice, getBlock, version, error, forkName } = require( "./funcs" );
 
 // dapps
 
@@ -68,7 +68,7 @@ bot.on('message', async function (user, userID, channelID, message, evt) {
             
             // forkname     
             case 'fork':
-                bot.sendMessage(forkName(payload));
+              bot.sendMessage(forkName(channelID, payload));
             break;
             
             // getBalance
@@ -101,6 +101,24 @@ bot.on('message', async function (user, userID, channelID, message, evt) {
               bot.sendMessage({
                   to: channelID,
                   message: "Get transaction requires a txId (i.e. !getTransaction <txId>)"
+              });
+            }
+            break;
+
+            //get transactionReceipt
+
+           case 'inspect':
+             if(payload != undefined){
+              web3.eth.getTransactionReceipt(payload).then(
+              transaction => {
+                bot.sendMessage(getTXR(channelID, payload, transaction));
+              }).catch((err) => {
+                bot.sendMessage(error(channelID, err))
+              });
+            } else {
+              bot.sendMessage({
+                  to: channelID,
+                  message: "Get transaction receipt requires a txId (i.e. !getTransaction <txId>)"
               });
             }
             break;

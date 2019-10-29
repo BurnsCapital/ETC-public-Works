@@ -4,6 +4,7 @@ const { log } = require('../common');
 var getBlockNumber = require('./getblocknumber');
 var getBalance = require('./getBalance');
 var getTransaction = require('./getTransactions');
+var getTXR = require('./getTXR');
 var sendSignedTransaction = require('./sendSignedTransaction')
 var getGasPrice = require('./getGasPrice');
 var getBlock = require('./getBlock');
@@ -17,6 +18,7 @@ module.exports = {
     getBlockNumber : getBlockNumber,
     getBalance : getBalance,
     getTransaction : getTransaction,
+    getTXR : getTXR,
     sendSignedTransaction : sendSignedTransaction,
     getGasPrice : getGasPrice,
     getBlock : getBlock,
