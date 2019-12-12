@@ -1,3 +1,5 @@
+const { log, web3 } = require('../common');
+
 module.exports = (channelID, funcs, rawBlk) => {
 
   //transactions = rawBlk.transactions.length;
