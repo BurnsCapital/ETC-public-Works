@@ -219,7 +219,7 @@ bot.on('message', async function (user, userID, channelID, message, evt) {
         case 'agharta':
               web3.eth.getBlockNumber()
               .then(blockNumber => {
-                bot.sendMessage(atlantis(channelID, "Agharta", 9200000, blockNumber));
+                bot.sendMessage(atlantis(channelID, "Agharta", 9573000, blockNumber));
                   }).catch((err) => {
                 bot.sendMessage(error(channelID, err))
               });
